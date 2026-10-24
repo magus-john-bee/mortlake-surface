@@ -1,0 +1,27 @@
+<section class="resume-section" id="projects">
+  <h2>Projects</h2>
+  {{ range hugo.Data.resume.projects }}
+  <div class="resume-item">
+    <div class="resume-item-header">
+      <h3>{{ .name }}</h3>
+      {{ with .roles }}<span class="resume-company">{{ delimit . ", " }}</span>{{ end }}
+      <span class="resume-dates">
+        {{ dateFormat "Jan 2006" .startDate }} —
+        {{ if .endDate }}{{ dateFormat "Jan 2006" .endDate }}{{ else }}Present{{ end }}
+      </span>
+    </div>
+
+    {{ if .description }}
+    <p class="resume-summary">{{ .description }}</p>
+    {{ end }}
+
+    {{ if .highlights }}
+    <ul class="resume-highlights">
+      {{ range .highlights }}
+      <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  </div>
+  {{ end }}
+</section>

@@ -1,0 +1,8 @@
+<section class="resume-section" id="languages">
+  <h2>Languages</h2>
+  <ul class="language-list">
+    {{ range hugo.Data.resume.languages }}
+    <li>{{ .language }} — <em>{{ .fluency }}</em></li>
+    {{ end }}
+  </ul>
+</section>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BrandingOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LoginDisclaimer>&lt;div class="remote-auth-login"&gt;&lt;p class="remote-auth-divider"&gt;or&lt;/p&gt;&lt;form action="/sso/RemoteAuth/Login" method="get"&gt;&lt;button type="submit" class="raised block emby-button button-submit remote-auth-button"&gt;Sign in with SSO&lt;/button&gt;&lt;/form&gt;&lt;/div&gt;</LoginDisclaimer>
+  <CustomCss>.loginDisclaimerContainer, .remote-auth-login { display: block; width: 100%; max-width: 22em; margin: 0.75em auto 0; } .remote-auth-divider { text-align: center; opacity: 0.6; margin: 0.5em 0 1em; font-size: 0.9em; } .remote-auth-button { width: 100%; padding: 0.95em 1em; border: 0; border-radius: 0.35em; font-weight: 600; background: linear-gradient(135deg, #00a4dc 0%, #0088b8 100%); color: #fff !important; }</CustomCss>
+  <SplashscreenEnabled>false</SplashscreenEnabled>
+</BrandingOptions>

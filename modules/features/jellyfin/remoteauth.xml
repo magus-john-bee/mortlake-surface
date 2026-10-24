@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Jellyfin.Plugin.RemoteAuth configuration template.
+
+  @REMOTEAUTH_SECRET@ is replaced at eval time with the
+  jellyfin-remoteauth-secret sops value; nginx must inject the same
+  value as the X-Remote-Auth-Secret header (see tailnet-sso.conf and
+  the jellyfin-remoteauth-nginx.conf sops template).
+
+  Trust model: nginx only sends identity headers for tailnet-source
+  requests, and always overwrites any client-supplied values, so the
+  only reachable identity is "john"/"tailnet". The tailnet role maps
+  to admin with full libraries — this is a single-user server. Empty
+  DefaultRoleName denies every other identity. AllowPasswordLogin
+  stays true so non-tailnet clients (public vhost, LAN, Infuse) keep
+  normal password login.
+
+  Seeded on every jellyfin start: dashboard edits to this config are
+  reverted on restart.
+-->
+<PluginConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Enabled>true</Enabled>
+  <SecretHeaderName>X-Remote-Auth-Secret</SecretHeaderName>
+  <SecretHeaderValue>@REMOTEAUTH_SECRET@</SecretHeaderValue>
+  <UserHeader>X-Remote-Auth-User</UserHeader>
+  <EmailHeader>X-Remote-Auth-Email</EmailHeader>
+  <DisplayNameHeader>X-Remote-Auth-Name</DisplayNameHeader>
+  <GroupsHeader>X-Remote-Auth-Groups</GroupsHeader>
+  <GroupsDelimiter>|</GroupsDelimiter>
+  <AdminGroup></AdminGroup>
+  <AutoCreateUsers>true</AutoCreateUsers>
+  <AllowPasswordLogin>true</AllowPasswordLogin>
+  <DefaultRoleName></DefaultRoleName>
+  <RoleMappings>
+    <RoleMapping>
+      <RoleName>tailnet</RoleName>
+      <IsAdmin>true</IsAdmin>
+      <EnableAllLibraries>true</EnableAllLibraries>
+      <LibraryIds />
+      <LibraryNames />
+      <EnableLiveTv>true</EnableLiveTv>
+      <EnableLiveTvManagement>true</EnableLiveTvManagement>
+      <EnableMediaPlayback>true</EnableMediaPlayback>
+      <EnableRemoteAccess>true</EnableRemoteAccess>
+      <EnableTranscoding>true</EnableTranscoding>
+      <EnableContentDeletion>false</EnableContentDeletion>
+      <EnableCollectionManagement>true</EnableCollectionManagement>
+      <EnableSubtitleManagement>true</EnableSubtitleManagement>
+      <MaxParentalRating xsi:nil="true" />
+      <Priority>0</Priority>
+    </RoleMapping>
+  </RoleMappings>
+</PluginConfiguration>

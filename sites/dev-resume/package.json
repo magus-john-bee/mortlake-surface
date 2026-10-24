@@ -1,0 +1,25 @@
+{
+  "name": "johnotwell-resume",
+  "private": true,
+  "dependencies": {
+    "@tabler/icons": "^3.49.0",
+    "flexsearch": "0.8.212",
+    "normalize.css": "^8.0.1",
+    "prism-themes": "^1.9.0",
+    "prismjs": "^1.30.0",
+    "simple-icons": "^16.35.0",
+    "typeface-fira-code": "^1.1.13",
+    "typeface-roboto-slab": "^1.1.13"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^8.0.0",
+    "cssnano": "^7.1.9",
+    "postcss": "^8.5.30",
+    "postcss-cli": "^12.0.0",
+    "postcss-custom-media": "^11.0.6",
+    "postcss-import": "^16.2.0",
+    "postcss-nesting": "^13.0.2",
+    "postcss-preset-env": "^10.6.1",
+    "postcss-url": "^10.1.4"
+  }
+}

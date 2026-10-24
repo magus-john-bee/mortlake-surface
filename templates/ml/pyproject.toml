@@ -1,0 +1,11 @@
+[project]
+name = "my-ml-project"
+version = "0.1.0"
+description = "Add description here"
+requires-python = ">=3.12"
+dependencies = ["mlflow", "dvc"]
+
+# Add project-specific ML packages declaratively:
+#   uv add torch transformers peft trl datasets
+# For CUDA PyTorch on NVIDIA cloud (vast.ai, RunPod, Lambda):
+#   uv add torch --index-url https://download.pytorch.org/whl/cu121

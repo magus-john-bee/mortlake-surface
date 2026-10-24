@@ -1,0 +1,412 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "John Otwell",
+    "label": "Software Engineer",
+    "image": "/img/headshot.jpg",
+    "email": "john.otwell@proton.me",
+    "url": "https://john.otwell.dev",
+    "summary": "I'm a generalist software engineer fluent with generative AI — using it to complement my own work, and building with it to complement the work of technical teams. I'm comfortable across many layers of abstraction, from data-oriented systems work to distributed infrastructure. Experience spanning biology, education, finance, cryptocurrency, and AI keeps my skillset broad and makes cross-domain learning fast.",
+    "location": {
+      "city": "Spartanburg",
+      "countryCode": "US",
+      "region": "South Carolina"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "john-otwell",
+        "url": "https://www.linkedin.com/in/john-otwell"
+      },
+      {
+        "network": "GitHub",
+        "username": "jbotwell",
+        "url": "https://github.com/jbotwell"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "S&P Global",
+      "description": "Financial data and analytics",
+      "position": "Software Engineer",
+      "location": "(REMOTE) New York, New York, United States",
+      "url": "https://www.spglobal.com",
+      "startDate": "2023-10-01",
+      "summary": "Software Engineer building AI orchestration systems at a leading financial services company with 10,001+ employees.",
+      "highlights": [
+        "Designed and built AI Assistant specializing in communicating analytics data for capital markets",
+        "Orchestrated multiple agents involving different sets of tools, prompts, RAG resources, security models, and capabilities to present a competent AI to end users",
+        "Designed and built MCP server uniting backend services to allow internal users and AI applications to discover and manage market data",
+        "Implemented assessment and improvement pipeline coordinating models, prompts, tools, and goals"
+      ]
+    },
+    {
+      "name": "Efficiency Aggregators LLC",
+      "description": "Electrical services and generator installation",
+      "position": "Head of Technology",
+      "location": "(REMOTE) Houston, Texas, United States",
+      "startDate": "2020-08-01",
+      "endDate": "2023-04-01",
+      "summary": "Led technology initiatives and built custom software solutions. Continued part-time while at Chipper Cash.",
+      "highlights": [
+        "Built and customized ERP system using Python, Odoo14, PostgreSQL, JavaScript, and Digital Ocean tools to administer ~$500k in revenue per quarter",
+        "Developed greenfield application using JavaScript, Node.js, and SQLite to administer electrical load-balancing with residential standby generator customers",
+        "Built static site using Jekyll and Ruby that consistently scores above 90 in relevant Google Lighthouse metrics",
+        "Administered all vendor accounts including Google Workspace, Housecall Pro, Digital Ocean, Gitlab, and JustHost"
+      ]
+    },
+    {
+      "name": "Chipper Cash",
+      "description": "Cross-border payments and cryptocurrency",
+      "position": "Software Engineer",
+      "location": "(REMOTE) San Francisco, California, United States",
+      "url": "https://chippercash.com",
+      "startDate": "2022-06-01",
+      "endDate": "2023-03-01",
+      "summary": "Built backend cryptocurrency systems for a financial services company.",
+      "highlights": [
+        "Built and administered backend cryptocurrency system serving ~90k active users",
+        "Used TypeScript, Koa, PostgreSQL, TypeORM, and Retool to deliver backend services across ~200 endpoints with 33 endpoints directly administered",
+        "Led design and integration of CBDC technologies into Chipper's offering",
+        "Used TypeScript, React, and React Native front-end technologies to coordinate with and support front-end team in delivering good end-to-end UX",
+        "Led effort to integrate OpenAPI 3.0 spec into backend workflow; directly used OAS to document and test 33 endpoints"
+      ]
+    },
+    {
+      "name": "Instructure",
+      "description": "Educational technology (Canvas LMS)",
+      "position": "Software Engineer",
+      "location": "Salt Lake City Metropolitan Area",
+      "url": "https://www.instructure.com",
+      "startDate": "2020-02-01",
+      "endDate": "2020-08-01",
+      "summary": "Software Engineer building custom applications at an educational technology company.",
+      "highlights": [
+        "Developed and maintained custom applications for 8 clients delivering student progress tracking, content delivery, assessments management, and scheduling",
+        "Built small applications with 10-30 controller methods using Ruby, Rails, JavaScript, React, and PostgreSQL to integrate with the Canvas Learning Management System",
+        "Collaborated remotely with a team of 10 software and test engineers"
+      ]
+    },
+    {
+      "name": "Galvanize Inc",
+      "description": "Coding bootcamp and technical education",
+      "position": "Software Engineer in Residence",
+      "location": "New York, New York, United States",
+      "url": "https://www.galvanize.com",
+      "startDate": "2019-12-01",
+      "endDate": "2020-03-01",
+      "summary": "Teacher and Tutor at an educational technology and coding bootcamp company.",
+      "highlights": [
+        "Taught ~35 students in two different cohorts for Hack Reactor Remote in fullstack software development",
+        "Answered questions and provided instruction in general programming and in technologies including JavaScript, React, Redux, Node, Express, MySQL, and PostgreSQL",
+        "Addressed ~3 help tickets per hour during instructional periods and scheduled virtual office hours 10 hours per week"
+      ]
+    },
+    {
+      "name": "High School for Construction Trades, Engineering & Architecture",
+      "description": "New York City public high school",
+      "position": "High School Teacher",
+      "location": "New York City Metropolitan Area",
+      "startDate": "2018-09-01",
+      "endDate": "2019-09-01",
+      "summary": "High School Teacher in New York City.",
+      "highlights": [
+        "Instructed over 100 students in grades 9-12 in AP Biology, AP Computer Science, Introductory Biology, and Introductory Computer Science"
+      ]
+    },
+    {
+      "name": "Peace Corps",
+      "description": "United States federal volunteer program",
+      "position": "English Teacher and Teacher Trainer",
+      "location": "Sukabumi, West Java, Indonesia",
+      "url": "https://www.peacecorps.gov",
+      "startDate": "2015-03-01",
+      "endDate": "2017-07-01",
+      "summary": "English Teacher and Teacher Trainer in Sukabumi, West Java, Indonesia.",
+      "highlights": [
+        "Instructed over 150 students in English and over 100 fellow volunteers and local teachers in English and pedagogy"
+      ]
+    }
+  ],
+  "volunteer": [],
+  "education": [
+    {
+      "institution": "University of Georgia",
+      "url": "https://uga.edu",
+      "area": "Cellular and Molecular Biology & Microbiology",
+      "studyType": "Bachelor of Science",
+      "startDate": "2007-08-15",
+      "endDate": "2012-05-15"
+    },
+    {
+      "institution": "University of Nicosia",
+      "url": "https://www.unic.ac.cy/",
+      "area": "Digital Currencies",
+      "studyType": "Master of Science",
+      "startDate": "2017-08-15",
+      "endDate": "2019-08-15"
+    },
+    {
+      "institution": "Hack Reactor",
+      "url": "https://hackreactor.com",
+      "area": "Software Engineering Intensive",
+      "studyType": "Bootcamp",
+      "startDate": "2019-08-28",
+      "endDate": "2019-11-28"
+    },
+    {
+      "institution": "Bradfield School of Computer Science",
+      "url": "https://bradfieldcs.com/",
+      "area": "Computer Science",
+      "studyType": "Continuing Education",
+      "startDate": "2022-08-15",
+      "endDate": "2023-08-15"
+    }
+  ],
+  "awards": [],
+  "certificates": [
+    {
+      "name": "Bradfield Computer Science Program",
+      "issuer": "Bradfield School of Computer Science",
+      "date": "2023-08-15"
+    },
+    {
+      "name": "Returned Peace Corps Volunteer (RPCV)",
+      "issuer": "United States Peace Corps",
+      "date": "2017-07-01"
+    }
+  ],
+  "publications": [],
+  "skills": [
+    {
+      "name": "Backend Development",
+      "level": "Advanced",
+      "keywords": [
+        "Python",
+        "Node.js",
+        "TypeScript",
+        "Koa",
+        "TypeORM",
+        "C#",
+        ".NET Core",
+        "ASP.NET",
+        "FastAPI",
+        "Express",
+        "Ruby",
+        "Ruby on Rails",
+        "GraphQL"
+      ]
+    },
+    {
+      "name": "Frontend & Web",
+      "level": "Intermediate",
+      "keywords": [
+        "JavaScript",
+        "React",
+        "React Native",
+        "Redux",
+        "AngularJS",
+        "Jekyll"
+      ]
+    },
+    {
+      "name": "AI & Machine Learning",
+      "level": "Advanced",
+      "keywords": [
+        "Azure OpenAI",
+        "LangGraph",
+        "LangChain",
+        "AWS Bedrock",
+        "Anthropic models",
+        "FastMCP",
+        "Semantic Kernel",
+        "Text-to-SQL"
+      ]
+    },
+    {
+      "name": "Databases",
+      "level": "Advanced",
+      "keywords": [
+        "PostgreSQL",
+        "SQLite",
+        "MySQL",
+        "OpenSearch"
+      ]
+    },
+    {
+      "name": "Infrastructure & Tools",
+      "level": "Advanced",
+      "keywords": [
+        "Digital Ocean",
+        "GitLab",
+        "Google Workspace",
+        "Retool",
+        "AWS",
+        "OpenAPI",
+        "Docker"
+      ]
+    },
+    {
+      "name": "ERP Systems",
+      "level": "Intermediate",
+      "keywords": [
+        "Odoo14",
+        "OpenERP"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native"
+    },
+    {
+      "language": "Bahasa Indonesia",
+      "fluency": "Conversational"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Semantic Web",
+      "keywords": []
+    },
+    {
+      "name": "Applied Ontology",
+      "keywords": []
+    },
+    {
+      "name": "Declarative Build Systems",
+      "keywords": []
+    },
+    {
+      "name": "Declarative Configuration",
+      "keywords": []
+    },
+    {
+      "name": "Pedagogy",
+      "keywords": []
+    },
+    {
+      "name": "Cognitive Science",
+      "keywords": []
+    }
+  ],
+  "references": [
+    {
+      "name": "AJ Smith",
+      "position": "Director - AI Engineering, S&P Global",
+      "reference": "John is a very intelligent engineer with a real passion for AI. He stays on top of the latest research and architectures, and he's hands-on: he builds on new papers himself rather than just reading about them. As a founding engineer on one of S&P Global's first commercial AI chatbots, he put that curiosity to work building a product used by real customers."
+    },
+    {
+      "name": "Kevin M.",
+      "position": "FinTech Engineering Leader",
+      "reference": "John is a strong developing software engineer who constantly engages himself in learning new things, spanning topics from blockchain engineering to the English language, and he actively forays into many other diverse branches of knowledge. John demonstrated grit and a deep ownership of his work when it came to taking action and pushing forward initiatives, actively managing tech debt, and producing specification documents, to name just a few. One thing that especially stood out to me about John is his proactive mindset designing features that are often as future-proof as possible, allowing for flexibility even as product requirements change.  John has a bright future as a technology polyglot and I believe any team would be lucky to have someone of his diverse skillset."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Market Intelligence Chat Assistant",
+      "description": "Customer-facing conversational assistant over S&P Global Market Intelligence institutional ownership data",
+      "highlights": [
+        "Built customer-facing chat assistant giving Investor Relations Officers natural-language access to institutional equity ownership, investor profiles, and expected-activity signals",
+        "Implemented planner-driven tool orchestration with Semantic Kernel, exposing product APIs as tools the assistant calls to answer data questions",
+        "Built retrieval-augmented (RAG) pipeline over product documentation to ground responses and answer product-usage questions alongside data queries",
+        "Delivered on Azure OpenAI as an IC on a 3-5 engineer team with QA and product ownership"
+      ],
+      "keywords": [
+        "Semantic Kernel",
+        "Azure OpenAI",
+        "Retrieval-Augmented Generation",
+        "Python"
+      ],
+      "roles": [
+        "Software Engineer"
+      ],
+      "entity": "S&P Global Market Intelligence",
+      "type": "application",
+      "startDate": "2023-10-01"
+    },
+    {
+      "name": "Natural-Language Query Engine",
+      "description": "Vanilla-Python engine translating sell-side analysts' plain-English questions into OpenSearch and SQL queries over Capital IQ sell-side data",
+      "highlights": [
+        "Built a natural-language query engine over most of the sell-side data Capital IQ exposes, on a two-tier architecture: canonical relational store digested into OpenSearch indexes",
+        "Compiled plain-English questions into structured OpenSearch queries — Query DSL filters, lexical full-text matching, and aggregations",
+        "Generated SQL SELECTs against the canonical relational store for relational slices of the data",
+        "Implemented LLM-driven query generation in vanilla Python with no agent framework, shaping behavior through iterated prompt refinement",
+        "Kept the query surface read-only, generating only read queries against the derived search tier and the canonical store"
+      ],
+      "keywords": [
+        "Python",
+        "OpenSearch",
+        "Query DSL",
+        "SQL",
+        "Text-to-SQL"
+      ],
+      "roles": [
+        "Software Engineer"
+      ],
+      "entity": "S&P Global Market Intelligence",
+      "type": "application",
+      "startDate": "2025-07-01",
+      "endDate": "2025-12-01"
+    },
+    {
+      "name": "Multi-Agent Assistant Orchestrator",
+      "description": "Planner-led multi-agent orchestrator (LangChain/LangGraph) built as the agentic successor to the Market Intelligence chat assistant, designed to plug into multiple MCP servers",
+      "highlights": [
+        "Built the agentic successor to the chat assistant: a planner-led multi-agent orchestrator, shipped to production for the Investor Relations audience",
+        "Orchestrated multiple agents with distinct tools, prompts, RAG resources, and security models using LangChain and LangGraph",
+        "Designed the tool layer to plug into multiple MCP servers, decoupling agents from any single tool source",
+        "Iterated models, prompts, and tools across agents, deploying them through Amazon Bedrock's model-serving APIs",
+        "Delivered as an IC on a 3-5 engineer team with QA and product ownership"
+      ],
+      "keywords": [
+        "LangChain",
+        "LangGraph",
+        "AWS Bedrock",
+        "Anthropic Claude",
+        "MCP",
+        "Python"
+      ],
+      "roles": [
+        "Software Engineer"
+      ],
+      "entity": "S&P Global Market Intelligence",
+      "type": "application",
+      "startDate": "2025-10-01",
+      "endDate": "2026-09-01"
+    },
+    {
+      "name": "Market Data MCP Server",
+      "description": "FastMCP server uniting backend market-data APIs behind a single tool surface for AI applications and developer agent harnesses",
+      "highlights": [
+        "Led the design and build of an MCP server on FastMCP, uniting backend product APIs into a single tool surface on a 3-5 engineer team",
+        "Auto-generated tool definitions from OpenAPI/Swagger specs using a little-documented FastMCP capability, replacing hand-written tool scaffolding",
+        "Built tools that queried backend APIs directly and performed cross-API data processing when single calls were insufficient",
+        "Exposed the server over both stdio and Streamable HTTP",
+        "Served two client populations in production: the multi-agent orchestrator as its primary consumer, and developers' agent harnesses across the organization as a shared tool layer"
+      ],
+      "keywords": [
+        "FastMCP",
+        "MCP",
+        "OpenAPI",
+        "Streamable HTTP",
+        "Python"
+      ],
+      "roles": [
+        "Software Engineer"
+      ],
+      "entity": "S&P Global Market Intelligence",
+      "type": "application",
+      "startDate": "2025-10-01",
+      "endDate": "2026-09-01"
+    }
+  ],
+  "meta": {
+    "version": "1.0.0",
+    "lastModified": "2026-09-24T00:00:00Z",
+    "canonical": "https://github.com/uriel-mortlake/mortlake/blob/main/data/resume.json"
+  }
+}

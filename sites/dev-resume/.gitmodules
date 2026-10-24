@@ -1,0 +1,12 @@
+[submodule "themes/hugo-theme-gruvbox"]
+	path = themes/hugo-theme-gruvbox
+	url = https://github.com/schnerring/hugo-theme-gruvbox.git
+[submodule "themes/hugo-mod-json-resume"]
+	path = themes/hugo-mod-json-resume
+	url = https://github.com/schnerring/hugo-mod-json-resume.git
+[submodule "themes/hugo-resume"]
+	path = themes/hugo-resume
+	url = https://github.com/eddiewebb/hugo-resume.git
+[submodule "themes/devRes"]
+	path = themes/devRes
+	url = https://github.com/nirgn975/devRes.git

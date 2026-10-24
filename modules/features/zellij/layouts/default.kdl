@@ -1,0 +1,22 @@
+layout {
+    tab {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        floating_panes {
+            pane {
+                width "80%"
+                height "100%"
+                x "10%"
+                y 0
+            }
+        }
+        pane stacked=true {
+        	pane
+        	pane
+        }
+        pane size=1 borderless=true {
+            plugin location="status-bar"
+        }
+    }
+}

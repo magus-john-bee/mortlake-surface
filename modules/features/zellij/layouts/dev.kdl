@@ -1,0 +1,28 @@
+layout {
+    tab name="dev" {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        floating_panes {
+            pane {
+                width "80%"
+                height "100%"
+                x "10%"
+                y 0
+            }
+        }
+        pane stacked=true {
+        	pane name="hx" {
+        		command "hx"
+        		close_on_exit false
+        	}
+        	pane name="zsh" {
+        		command "zsh"
+        		close_on_exit false
+        	}
+        }
+        pane size=1 borderless=true {
+            plugin location="status-bar"
+        }
+    }
+}
