@@ -1,0 +1,6 @@
+{
+  "basics": {
+    "label": "AI Orchestration Engineer",
+    "summary": "A software engineer specializing in AI orchestration—building the multi-agent systems, RAG pipelines, tool integrations, and security models that make LLMs useful in production. Designs the information and tooling context that lets AI agents and human operators work in tandem effectively, turning fragmented domain knowledge into structured, searchable systems. Brings a generalist's breadth—spanning biology, education, finance, and cryptocurrency—to the problem of making AI genuinely competent in complex domains."
+  }
+}

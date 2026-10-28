@@ -1,0 +1,13 @@
+<section class="resume-section" id="skills">
+  <h2>Skills</h2>
+  {{ range hugo.Data.resume.skills }}
+  <div class="skill-group">
+    <h3>{{ .name }} <span class="skill-level">({{ .level }})</span></h3>
+    <ul class="skill-keywords">
+      {{ range .keywords }}
+      <li class="skill-tag">{{ . }}</li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+</section>

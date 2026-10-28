@@ -1,0 +1,16 @@
+{{ define "main" }}
+<article class="post">
+  <div class="post-content">
+    <div class="resume">
+      {{ partial "resume/basics.html" . }}
+      {{ partial "resume/work.html" . }}
+      {{ partial "resume/projects.html" . }}
+      {{ partial "resume/education.html" . }}
+      {{ partial "resume/skills.html" . }}
+      {{ partial "resume/certificates.html" . }}
+      {{ partial "resume/languages.html" . }}
+      {{ partial "resume/interests.html" . }}
+    </div>
+  </div>
+</article>
+{{ end }}

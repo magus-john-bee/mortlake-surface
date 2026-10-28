@@ -1,0 +1,42 @@
+<section class="resume-section" id="basics">
+  {{ $basics := hugo.Data.resume.basics }}
+  <div class="resume-header">
+    {{ if $basics.image }}
+    <img src="{{ $basics.image }}" alt="{{ $basics.name }}" class="resume-photo" />
+    {{ end }}
+    <div class="resume-title">
+      <h1>{{ $basics.name }}</h1>
+      <p class="resume-label">{{ $basics.label }}</p>
+      {{ if $basics.email }}<p><a href="mailto:{{ $basics.email }}">{{ $basics.email }}</a></p>{{ end }}
+      {{ if $basics.url }}<p><a href="{{ $basics.url }}">{{ $basics.url }}</a></p>{{ end }}
+      {{ if $basics.location }}
+      <p class="resume-location">
+        {{ $basics.location.city }}{{ if $basics.location.region }}, {{ $basics.location.region }}{{ end }}{{ if $basics.location.countryCode }}, {{ $basics.location.countryCode }}{{ end }}
+      </p>
+      {{ end }}
+    </div>
+  </div>
+
+  {{ if $basics.summary }}
+  <div class="resume-summary">
+    <h2>Summary</h2>
+    <p>{{ $basics.summary }}</p>
+  </div>
+  {{ end }}
+
+  {{ if $basics.profiles }}
+  <div class="resume-profiles">
+    <h2>Profiles</h2>
+    <ul class="profile-list">
+      {{ range $basics.profiles }}
+      <li>
+        <a href="{{ .url }}" target="_blank" rel="noopener">
+          {{ if eq .network "LinkedIn" }}🔗{{ else if eq .network "GitHub" }}💻{{ else }}🌐{{ end }}
+          {{ .network }}: {{ .username }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+</section>

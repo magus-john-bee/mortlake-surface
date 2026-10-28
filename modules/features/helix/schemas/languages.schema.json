@@ -1,0 +1,480 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "helix-languages.schema.json",
+  "title": "Helix Languages Configuration",
+  "description": "Schema for Helix editor languages.toml",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference"
+    },
+    "language": {
+      "type": "array",
+      "description": "Language definitions",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "scope",
+          "file-types"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Unique language identifier"
+          },
+          "language-id": {
+            "type": "string",
+            "description": "Override LSP TextDocumentItem language ID"
+          },
+          "scope": {
+            "type": "string",
+            "description": "TextMate scope (e.g. source.rust)"
+          },
+          "file-types": {
+            "type": "array",
+            "description": "File extensions or glob patterns",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "glob": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "glob"
+                  ]
+                }
+              ]
+            }
+          },
+          "shebangs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Interpreter names for shebang matching"
+          },
+          "roots": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Root marker files/dirs (e.g. .git, Cargo.toml)"
+          },
+          "comment-tokens": {
+            "description": "Line comment token(s)",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "comment-token": {
+            "type": "string",
+            "description": "Deprecated alias for comment-tokens"
+          },
+          "block-comment-tokens": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "start": {
+                    "type": "string"
+                  },
+                  "end": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "start",
+                  "end"
+                ]
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "start": {
+                      "type": "string"
+                    },
+                    "end": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "start",
+                    "end"
+                  ]
+                }
+              }
+            ]
+          },
+          "text-width": {
+            "type": "integer",
+            "description": "Override editor text-width for this language"
+          },
+          "soft-wrap": {
+            "type": "object",
+            "description": "Override editor soft-wrap for this language",
+            "properties": {
+              "enable": {
+                "type": "boolean"
+              },
+              "max-wrap": {
+                "type": "integer"
+              },
+              "max-indent-retain": {
+                "type": "integer"
+              },
+              "wrap-indicator": {
+                "type": "string"
+              },
+              "wrap-at-text-width": {
+                "type": "boolean"
+              }
+            }
+          },
+          "auto-format": {
+            "type": "boolean",
+            "default": false
+          },
+          "formatter": {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string"
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
+              }
+            },
+            "required": [
+              "command"
+            ]
+          },
+          "path-completion": {
+            "type": "boolean",
+            "description": "Override editor path-completion"
+          },
+          "word-completion": {
+            "type": "object",
+            "properties": {
+              "enable": {
+                "type": "boolean"
+              },
+              "trigger-length": {
+                "type": "integer"
+              }
+            }
+          },
+          "diagnostic-severity": {
+            "type": "string",
+            "enum": [
+              "hint",
+              "info",
+              "warning",
+              "error"
+            ],
+            "default": "hint"
+          },
+          "grammar": {
+            "type": "string",
+            "description": "Tree-sitter grammar name (defaults to name)"
+          },
+          "injection-regex": {
+            "type": "string",
+            "description": "Regex for injection detection"
+          },
+          "language-servers": {
+            "type": "array",
+            "description": "Language servers to use",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "only-features": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "format",
+                          "goto-declaration",
+                          "goto-definition",
+                          "goto-type-definition",
+                          "goto-reference",
+                          "goto-implementation",
+                          "signature-help",
+                          "hover",
+                          "document-highlight",
+                          "completion",
+                          "code-action",
+                          "document-links",
+                          "workspace-command",
+                          "document-symbols",
+                          "workspace-symbols",
+                          "diagnostics",
+                          "pull-diagnostics",
+                          "rename-symbol",
+                          "inlay-hints",
+                          "document-colors",
+                          "call-hierarchy"
+                        ]
+                      }
+                    },
+                    "except-features": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "format",
+                          "goto-declaration",
+                          "goto-definition",
+                          "goto-type-definition",
+                          "goto-reference",
+                          "goto-implementation",
+                          "signature-help",
+                          "hover",
+                          "document-highlight",
+                          "completion",
+                          "code-action",
+                          "document-links",
+                          "workspace-command",
+                          "document-symbols",
+                          "workspace-symbols",
+                          "diagnostics",
+                          "pull-diagnostics",
+                          "rename-symbol",
+                          "inlay-hints",
+                          "document-colors",
+                          "call-hierarchy"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              ]
+            }
+          },
+          "indent": {
+            "type": "object",
+            "properties": {
+              "tab-width": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 16
+              },
+              "unit": {
+                "type": "string",
+                "description": "String used for one level of indent (e.g. '    ' or '\\t')"
+              }
+            }
+          },
+          "tab-width": {
+            "type": "integer",
+            "description": "Alias for indent.tab-width"
+          },
+          "debugger": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "transport",
+                "command",
+                "templates"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "transport": {
+                  "type": "string",
+                  "enum": [
+                    "stdio",
+                    "tcp"
+                  ]
+                },
+                "command": {
+                  "type": "string"
+                },
+                "args": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "port-arg": {
+                  "type": "string"
+                },
+                "templates": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "name",
+                      "request",
+                      "args"
+                    ],
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "request": {
+                        "type": "string",
+                        "enum": [
+                          "launch",
+                          "attach"
+                        ]
+                      },
+                      "completion": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "label": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            },
+                            "type": {
+                              "type": "string",
+                              "enum": [
+                                "string",
+                                "number",
+                                "boolean"
+                              ]
+                            }
+                          }
+                        }
+                      },
+                      "args": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                },
+                "quirks": {
+                  "type": "object",
+                  "properties": {
+                    "absolute-paths": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "auto-pairs": {
+            "description": "Override editor auto-pairs for this language",
+            "oneOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "rulers": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "Override editor rulers for this language"
+          },
+          "workspace-lsp-roots": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "persistent-diagnostic-sources": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rainbow-brackets": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "language-server": {
+      "type": "object",
+      "description": "Language server configurations, keyed by server name",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string",
+            "description": "Binary name or path"
+          },
+          "args": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": []
+          },
+          "environment": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "Environment variables to set for the server"
+          },
+          "config": {
+            "type": "object",
+            "description": "LSP initializationOptions (any TOML → JSON)"
+          },
+          "timeout": {
+            "type": "integer",
+            "default": 20,
+            "description": "Seconds before server startup times out"
+          },
+          "required-root-patterns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Glob patterns that must be present to start the server"
+          }
+        }
+      }
+    }
+  }
+}
