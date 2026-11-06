@@ -1,0 +1,30 @@
+<section class="resume-section" id="work">
+  <h2>Work Experience</h2>
+  {{ range hugo.Data.resume.work }}
+  <div class="resume-item">
+    <div class="resume-item-header">
+      <h3>{{ .position }}</h3>
+      <span class="resume-company">
+        {{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}
+      </span>
+      <span class="resume-dates">
+        {{ dateFormat "Jan 2006" .startDate }} —
+        {{ if .endDate }}{{ dateFormat "Jan 2006" .endDate }}{{ else }}Present{{ end }}
+      </span>
+      {{ if .location }}<span class="resume-location">{{ .location }}</span>{{ end }}
+    </div>
+
+    {{ if .summary }}
+    <p class="resume-summary">{{ .summary }}</p>
+    {{ end }}
+
+    {{ if .highlights }}
+    <ul class="resume-highlights">
+      {{ range .highlights }}
+      <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  </div>
+  {{ end }}
+</section>

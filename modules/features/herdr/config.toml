@@ -1,0 +1,50 @@
+# herdr configuration — managed declaratively (mortlake modules/features/herdr.nix).
+#
+# NOTE: in-TUI settings edits (theme, sound, toast) and config-rewriting
+# subcommands (`herdr config reset-keys`) write to this file and will fail
+# against the read-only /etc path — set them here instead, then re-activate
+# and `herdr server reload-config` (or prefix+shift+r in the TUI).
+# Full reference: herdr --default-config
+onboarding = false
+
+[theme]
+# Built-in theme (options: catppuccin, tokyo-night, dracula, nord, gruvbox,
+# one-dark, solarized, kanagawa, rose-pine, vesper, terminal).
+name = "nord"
+
+[ui]
+# Agent status indicators: "symbols" = distinct static glyphs per state
+# (blocked/working/done/idle/unknown) instead of color-only dots — readable
+# without relying on color.
+status_indicators = "symbols"
+
+# Background notification popup delivery: system = ask the OS notification
+# service directly (desktop notifications via the notification daemon).
+[ui.toast]
+delivery = "system"
+
+# Play sounds when agents change state in background workspaces.
+[ui.sound]
+enabled = true
+
+# Spaces sidebar: default rows plus a jj row per space (bookmark + status
+# glyphs, e.g. "main:: @xyz  ↑2 *3"). Empty for non-jj workspaces and collapses
+# automatically. Tokens come from the mroth.jj-status plugin.
+# IMPERATIVE (one-time per fresh machine, alongside the integrations block in
+# herdr.nix): herdr plugin install mroth/herdr-jj-status --yes — then
+# re-activate and `herdr server reload-config`.
+[ui.sidebar.spaces]
+rows = [
+  [
+    "state_icon",
+    "workspace",
+  ],
+  [
+    "branch",
+    "git_status",
+  ],
+  [
+    "$jj_bookmark",
+    "$jj_status",
+  ],
+]

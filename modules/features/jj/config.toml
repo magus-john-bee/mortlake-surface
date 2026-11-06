@@ -1,0 +1,14 @@
+# jj system config — identity + agent-friendly defaults.
+# Deployed to /etc/jj/config.toml; the wrapped jj points JJ_CONFIG here
+# (modules/features/jj.nix). Per-repo state (.jj/, bookmark tracking)
+# stays local to each repo.
+
+user.name = "John Otwell"
+user.email = "john@otwell.dev"
+
+# Real .git per repo: jj workspaces register as git worktrees → herdr and
+# git tooling interoperate (creation stays `jj workspace add --colocate`).
+git.colocate = true
+
+# Non-interactive output for agents and scripts.
+ui.paginate = "never"

@@ -1,0 +1,9 @@
+keys:
+  - &raphael age10uytscks5w3kxew8d83a68eylfa92lmkg4x0gq7efvgpzmxmeuwq8nat96
+  - &jehoel age1xvwcxn65xjrr9u37hy2mc2hkhvprnl6exuhtlyayg9d5083mt5ksrm4w9y
+creation_rules:
+  - path_regex: ^modules/features/secrets\.yaml$
+    key_groups:
+      - age:
+          - *jehoel
+          - *raphael

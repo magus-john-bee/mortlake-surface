@@ -1,0 +1,1007 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "helix-config.schema.json",
+  "title": "Helix Editor Configuration",
+  "description": "Schema for Helix editor config.toml",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference"
+    },
+    "theme": {
+      "description": "Theme name, or table with dark/light/fallback keys",
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "dark": {
+              "type": "string"
+            },
+            "light": {
+              "type": "string"
+            },
+            "fallback": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "dark",
+            "light"
+          ]
+        }
+      ]
+    },
+    "editor": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scrolloff": {
+          "type": "integer",
+          "default": 5,
+          "description": "Number of lines of padding around the cursor when scrolling"
+        },
+        "scroll-lines": {
+          "type": "integer",
+          "default": 3,
+          "description": "Number of lines to scroll per scroll event"
+        },
+        "mouse": {
+          "type": "boolean",
+          "default": true
+        },
+        "mouse-yank-register": {
+          "type": "string",
+          "default": "*",
+          "description": "Register used for mouse yanking (single char)"
+        },
+        "middle-click-paste": {
+          "type": "boolean",
+          "default": true
+        },
+        "shell": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "sh",
+            "-c"
+          ],
+          "description": "Shell to use for :sh commands"
+        },
+        "line-number": {
+          "type": "string",
+          "enum": [
+            "absolute",
+            "relative"
+          ],
+          "default": "absolute"
+        },
+        "cursorline": {
+          "type": "boolean",
+          "default": false,
+          "description": "Highlight the cursor line"
+        },
+        "cursorcolumn": {
+          "type": "boolean",
+          "default": false,
+          "description": "Highlight the cursor column"
+        },
+        "gutters": {
+          "description": "Gutter layout — either an array of gutter types or a table with layout + per-gutter config",
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "diagnostics",
+                  "spacer",
+                  "line-numbers",
+                  "diff"
+                ]
+              }
+            },
+            {
+              "type": "object",
+              "properties": {
+                "layout": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "diagnostics",
+                      "spacer",
+                      "line-numbers",
+                      "diff"
+                    ]
+                  }
+                },
+                "line-numbers": {
+                  "type": "object",
+                  "properties": {
+                    "min-width": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "auto-completion": {
+          "type": "boolean",
+          "default": true
+        },
+        "path-completion": {
+          "type": "boolean",
+          "default": true
+        },
+        "word-completion": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean",
+              "default": true
+            },
+            "trigger-length": {
+              "type": "integer",
+              "default": 7
+            }
+          }
+        },
+        "auto-format": {
+          "type": "boolean",
+          "default": true
+        },
+        "default-yank-register": {
+          "type": "string",
+          "default": "\""
+        },
+        "auto-save": {
+          "type": "object",
+          "properties": {
+            "focus-lost": {
+              "type": "boolean",
+              "default": false
+            },
+            "after-delay": {
+              "type": "object",
+              "properties": {
+                "enable": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "timeout": {
+                  "type": "integer",
+                  "default": 3000,
+                  "description": "Milliseconds"
+                }
+              }
+            }
+          }
+        },
+        "text-width": {
+          "type": "integer",
+          "default": 80
+        },
+        "idle-timeout": {
+          "type": "integer",
+          "default": 250,
+          "description": "Milliseconds before idle triggers"
+        },
+        "completion-timeout": {
+          "type": "integer",
+          "default": 250,
+          "description": "Milliseconds for completion request timeout"
+        },
+        "preview-completion-insert": {
+          "type": "boolean",
+          "default": true
+        },
+        "completion-trigger-len": {
+          "type": "integer",
+          "default": 2
+        },
+        "completion-replace": {
+          "type": "boolean",
+          "default": false
+        },
+        "continue-comments": {
+          "type": "boolean",
+          "default": true
+        },
+        "auto-info": {
+          "type": "boolean",
+          "default": true
+        },
+        "true-color": {
+          "type": "boolean",
+          "default": false
+        },
+        "undercurl": {
+          "type": "boolean",
+          "default": false
+        },
+        "rulers": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "default": [],
+          "description": "Column positions for ruler indicators"
+        },
+        "bufferline": {
+          "type": "string",
+          "enum": [
+            "never",
+            "always",
+            "multiple"
+          ],
+          "default": "never"
+        },
+        "color-modes": {
+          "type": "boolean",
+          "default": false
+        },
+        "default-line-ending": {
+          "type": "string",
+          "enum": [
+            "native",
+            "lf",
+            "crlf",
+            "ff",
+            "cr",
+            "nel"
+          ],
+          "default": "native"
+        },
+        "insert-final-newline": {
+          "type": "boolean",
+          "default": true
+        },
+        "atomic-save": {
+          "type": "boolean",
+          "default": true
+        },
+        "trim-final-newlines": {
+          "type": "boolean",
+          "default": false
+        },
+        "trim-trailing-whitespace": {
+          "type": "boolean",
+          "default": false
+        },
+        "popup-border": {
+          "type": "string",
+          "enum": [
+            "none",
+            "all",
+            "popup",
+            "menu"
+          ],
+          "default": "none"
+        },
+        "indent-heuristic": {
+          "type": "string",
+          "enum": [
+            "simple",
+            "tree-sitter",
+            "hybrid"
+          ],
+          "default": "hybrid"
+        },
+        "jump-label-alphabet": {
+          "type": "string",
+          "default": "abcdefghijklmnopqrstuvwxyz"
+        },
+        "editor-config": {
+          "type": "boolean",
+          "default": true,
+          "description": "Read .editorconfig files"
+        },
+        "rainbow-brackets": {
+          "type": "boolean",
+          "default": false
+        },
+        "kitty-keyboard-protocol": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "disabled",
+            "enabled"
+          ],
+          "default": "auto"
+        },
+        "insecure": {
+          "type": "boolean",
+          "default": false,
+          "description": "Trust all workspaces (skip LSP trust check)"
+        },
+        "auto-pairs": {
+          "description": "Auto-pair brackets/quotes",
+          "oneOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "Map of opening to closing character"
+            }
+          ]
+        },
+        "cursor-shape": {
+          "type": "object",
+          "properties": {
+            "normal": {
+              "type": "string",
+              "enum": [
+                "block",
+                "bar",
+                "underline",
+                "hidden"
+              ]
+            },
+            "insert": {
+              "type": "string",
+              "enum": [
+                "block",
+                "bar",
+                "underline",
+                "hidden"
+              ]
+            },
+            "select": {
+              "type": "string",
+              "enum": [
+                "block",
+                "bar",
+                "underline",
+                "hidden"
+              ]
+            }
+          }
+        },
+        "file-picker": {
+          "type": "object",
+          "properties": {
+            "hidden": {
+              "type": "boolean",
+              "default": true
+            },
+            "follow-symlinks": {
+              "type": "boolean",
+              "default": true
+            },
+            "deduplicate-links": {
+              "type": "boolean",
+              "default": true
+            },
+            "parents": {
+              "type": "boolean",
+              "default": true
+            },
+            "ignore": {
+              "type": "boolean",
+              "default": true
+            },
+            "git-ignore": {
+              "type": "boolean",
+              "default": true
+            },
+            "git-global": {
+              "type": "boolean",
+              "default": true
+            },
+            "git-exclude": {
+              "type": "boolean",
+              "default": true
+            },
+            "max-depth": {
+              "type": "integer"
+            }
+          }
+        },
+        "file-explorer": {
+          "type": "object",
+          "properties": {
+            "hidden": {
+              "type": "boolean",
+              "default": false
+            },
+            "follow-symlinks": {
+              "type": "boolean",
+              "default": false
+            },
+            "parents": {
+              "type": "boolean",
+              "default": false
+            },
+            "ignore": {
+              "type": "boolean",
+              "default": false
+            },
+            "git-ignore": {
+              "type": "boolean",
+              "default": false
+            },
+            "git-global": {
+              "type": "boolean",
+              "default": false
+            },
+            "git-exclude": {
+              "type": "boolean",
+              "default": false
+            },
+            "flatten-dirs": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        },
+        "statusline": {
+          "type": "object",
+          "properties": {
+            "left": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "mode",
+                  "spinner",
+                  "file-base-name",
+                  "file-name",
+                  "file-absolute-path",
+                  "file-modification-indicator",
+                  "read-only-indicator",
+                  "file-encoding",
+                  "file-line-ending",
+                  "file-indent-style",
+                  "file-type",
+                  "diagnostics",
+                  "workspace-diagnostics",
+                  "selections",
+                  "primary-selection-length",
+                  "position",
+                  "separator",
+                  "position-percentage",
+                  "total-line-numbers",
+                  "spacer",
+                  "version-control",
+                  "register",
+                  "current-working-directory"
+                ]
+              }
+            },
+            "center": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "mode",
+                  "spinner",
+                  "file-base-name",
+                  "file-name",
+                  "file-absolute-path",
+                  "file-modification-indicator",
+                  "read-only-indicator",
+                  "file-encoding",
+                  "file-line-ending",
+                  "file-indent-style",
+                  "file-type",
+                  "diagnostics",
+                  "workspace-diagnostics",
+                  "selections",
+                  "primary-selection-length",
+                  "position",
+                  "separator",
+                  "position-percentage",
+                  "total-line-numbers",
+                  "spacer",
+                  "version-control",
+                  "register",
+                  "current-working-directory"
+                ]
+              }
+            },
+            "right": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "mode",
+                  "spinner",
+                  "file-base-name",
+                  "file-name",
+                  "file-absolute-path",
+                  "file-modification-indicator",
+                  "read-only-indicator",
+                  "file-encoding",
+                  "file-line-ending",
+                  "file-indent-style",
+                  "file-type",
+                  "diagnostics",
+                  "workspace-diagnostics",
+                  "selections",
+                  "primary-selection-length",
+                  "position",
+                  "separator",
+                  "position-percentage",
+                  "total-line-numbers",
+                  "spacer",
+                  "version-control",
+                  "register",
+                  "current-working-directory"
+                ]
+              }
+            },
+            "separator": {
+              "type": "string",
+              "default": "│"
+            },
+            "mode": {
+              "type": "object",
+              "properties": {
+                "normal": {
+                  "type": "string"
+                },
+                "insert": {
+                  "type": "string"
+                },
+                "select": {
+                  "type": "string"
+                }
+              }
+            },
+            "diagnostics": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "hint",
+                  "info",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "workspace-diagnostics": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "hint",
+                  "info",
+                  "warning",
+                  "error"
+                ]
+              }
+            }
+          }
+        },
+        "search": {
+          "type": "object",
+          "properties": {
+            "smart-case": {
+              "type": "boolean",
+              "default": true
+            },
+            "wrap-around": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        },
+        "lsp": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean",
+              "default": true
+            },
+            "display-progress-messages": {
+              "type": "boolean",
+              "default": false
+            },
+            "display-messages": {
+              "type": "boolean",
+              "default": true
+            },
+            "auto-signature-help": {
+              "type": "boolean",
+              "default": true
+            },
+            "display-signature-help-docs": {
+              "type": "boolean",
+              "default": true
+            },
+            "display-inlay-hints": {
+              "type": "boolean",
+              "default": false
+            },
+            "auto-document-highlight": {
+              "type": "boolean",
+              "default": false
+            },
+            "inlay-hints-length-limit": {
+              "type": "integer"
+            },
+            "display-color-swatches": {
+              "type": "boolean",
+              "default": true
+            },
+            "snippets": {
+              "type": "boolean",
+              "default": true
+            },
+            "goto-reference-include-declaration": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        },
+        "terminal": {
+          "type": "object",
+          "properties": {
+            "command": {
+              "type": "string"
+            },
+            "args": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "whitespace": {
+          "type": "object",
+          "properties": {
+            "render": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "all",
+                    "none"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "space": {
+                      "type": "string",
+                      "enum": [
+                        "all",
+                        "none",
+                        "trailing"
+                      ]
+                    },
+                    "nbsp": {
+                      "type": "string",
+                      "enum": [
+                        "all",
+                        "none",
+                        "trailing"
+                      ]
+                    },
+                    "nnbsp": {
+                      "type": "string",
+                      "enum": [
+                        "all",
+                        "none",
+                        "trailing"
+                      ]
+                    },
+                    "tab": {
+                      "type": "string",
+                      "enum": [
+                        "all",
+                        "none",
+                        "trailing"
+                      ]
+                    },
+                    "newline": {
+                      "type": "string",
+                      "enum": [
+                        "all",
+                        "none",
+                        "trailing"
+                      ]
+                    },
+                    "default": {
+                      "type": "string",
+                      "enum": [
+                        "all",
+                        "none",
+                        "trailing"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            "characters": {
+              "type": "object",
+              "properties": {
+                "space": {
+                  "type": "string"
+                },
+                "nbsp": {
+                  "type": "string"
+                },
+                "nnbsp": {
+                  "type": "string"
+                },
+                "tab": {
+                  "type": "string"
+                },
+                "tabpad": {
+                  "type": "string"
+                },
+                "newline": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "indent-guides": {
+          "type": "object",
+          "properties": {
+            "render": {
+              "type": "boolean",
+              "default": false
+            },
+            "character": {
+              "type": "string",
+              "default": "│"
+            },
+            "skip-levels": {
+              "type": "integer",
+              "default": 0
+            }
+          }
+        },
+        "soft-wrap": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean",
+              "default": false
+            },
+            "max-wrap": {
+              "type": "integer",
+              "default": 20
+            },
+            "max-indent-retain": {
+              "type": "integer",
+              "default": 40
+            },
+            "wrap-indicator": {
+              "type": "string",
+              "default": "↪ "
+            },
+            "wrap-at-text-width": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        },
+        "smart-tab": {
+          "type": "object",
+          "properties": {
+            "enable": {
+              "type": "boolean",
+              "default": true
+            },
+            "supersede-menu": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        },
+        "inline-diagnostics": {
+          "type": "object",
+          "properties": {
+            "cursor-line": {
+              "type": "string",
+              "enum": [
+                "disable",
+                "hint",
+                "info",
+                "warning",
+                "error"
+              ],
+              "default": "warning"
+            },
+            "other-lines": {
+              "type": "string",
+              "enum": [
+                "disable",
+                "hint",
+                "info",
+                "warning",
+                "error"
+              ],
+              "default": "disable"
+            },
+            "min-diagnostic-width": {
+              "type": "integer",
+              "default": 40
+            },
+            "prefix-len": {
+              "type": "integer",
+              "default": 1
+            },
+            "max-wrap": {
+              "type": "integer",
+              "default": 20
+            },
+            "max-diagnostics": {
+              "type": "integer",
+              "default": 10
+            }
+          }
+        },
+        "end-of-line-diagnostics": {
+          "type": "string",
+          "enum": [
+            "disable",
+            "hint",
+            "info",
+            "warning",
+            "error"
+          ],
+          "default": "hint"
+        },
+        "workspace-lsp-roots": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "clipboard-provider": {
+          "oneOf": [
+            {
+              "type": "string",
+              "enum": [
+                "pasteboard",
+                "wayland",
+                "x-clip",
+                "x-sel",
+                "win-32-yank",
+                "tmux",
+                "termux",
+                "windows",
+                "termcode",
+                "none"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "yank": {
+                  "type": "object",
+                  "properties": {
+                    "command": {
+                      "type": "string"
+                    },
+                    "args": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "paste": {
+                  "type": "object",
+                  "properties": {
+                    "command": {
+                      "type": "string"
+                    },
+                    "args": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "buffer-picker": {
+          "type": "object",
+          "properties": {
+            "start-position": {
+              "type": "string",
+              "enum": [
+                "current",
+                "previous"
+              ],
+              "default": "current"
+            }
+          }
+        }
+      }
+    },
+    "keys": {
+      "type": "object",
+      "description": "Key mappings per mode",
+      "properties": {
+        "normal": {
+          "type": "object",
+          "additionalProperties": {
+            "description": "Key binding: command string, array of commands, or nested keymap",
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": true
+              }
+            ]
+          }
+        },
+        "insert": {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": true
+              }
+            ]
+          }
+        },
+        "select": {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": true
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
