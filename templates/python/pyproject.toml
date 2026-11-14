@@ -1,0 +1,18 @@
+[project]
+name = "my-python-project"
+version = "0.1.0"
+description = "Add description here"
+requires-python = ">=3.13"
+dependencies = []
+
+# Runtime deps land here via `uv add <pkg>` (updates uv.lock too).
+# Stable tools (ruff, ty) come from the nix dev shell — this group carries
+# only the python-level dev deps:
+[dependency-groups]
+dev = [
+  "pytest",
+  "hypothesis",
+  "ipython",
+  # helix completion; binary lands on PATH once .venv is active (.envrc)
+  "jedi-language-server",
+]

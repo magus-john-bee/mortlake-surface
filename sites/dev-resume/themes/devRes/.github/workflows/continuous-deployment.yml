@@ -1,0 +1,40 @@
+name: Continuous Deployment
+
+on:
+  milestone:
+    types: [closed]
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Hugo 💡
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Hugo Build 🚧
+        run: |
+          sed -i 's/example.com/nirgn975.github.io\/devRes/g' exampleSite/config.toml
+          hugo --source=exampleSite --minify -e production
+
+      - name: Create Release 🚀
+        uses: ridedott/release-me-action@master
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release-branches: '["main"]'
+
+      - name: Deploy gh-pages 🖥️
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: exampleSite/public
+          CLEAN: true

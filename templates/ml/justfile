@@ -1,0 +1,19 @@
+# default — show available commands
+default:
+    @just --list
+
+# Sync dependencies from pyproject.toml (run after adding packages or cloning)
+sync:
+    uv sync
+
+# Start MLflow tracking server (UI at http://localhost:5000)
+mlflow port="5000":
+    uv run mlflow server --host 0.0.0.0 --port {{port}}
+
+# Start Jupyter Lab
+jupyter:
+    uv run jupyter lab
+
+# Initialize DVC in this project
+dvc-init:
+    uv run dvc init

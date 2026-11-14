@@ -1,0 +1,17 @@
+{
+  "provider": "openrouter",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "llm": {
+    "timeout_sec": 600
+  },
+  "tasks": {
+    "MAIN_TASK": {
+      "timeout": 600
+    }
+  },
+  "providers": {
+    "openrouter": {
+      "api_key_cmd": "cat /run/secrets/openrouter-api-key"
+    }
+  }
+}

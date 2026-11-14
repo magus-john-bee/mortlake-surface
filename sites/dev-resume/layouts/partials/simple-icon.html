@@ -1,0 +1,19 @@
+<!-- Override: handle missing simple-icons gracefully -->
+{{ if .url }}<a href="{{ .url }}" target="_blank" rel="noreferrer me">{{ end }}
+
+<div class="jr-basics__profile-item">
+  <div class="jr-basics__profile-icon">
+    {{ $path := printf "simple-icons/%s.svg" (lower .network) }}
+    {{ with resources.Get $path }}
+      {{ .Content | safeHTML }}
+    {{ else }}
+      <span class="jr-basics__profile-icon-fallback">{{ substr .network 0 1 }}</span>
+    {{ end }}
+  </div>
+
+  {{ if .username }}
+    <div class="jr-basics__profile-username">{{ .username }}</div>
+  {{ end }}
+</div>
+
+{{ if .url }}</a>{{ end }}

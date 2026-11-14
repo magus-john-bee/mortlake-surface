@@ -1,0 +1,20 @@
+# Aven config — canonical, declarative copy for mortlake.
+# Symlinked to ~/.config/aven/config.yaml by aven.nix at activation.
+#
+# Deliberately minimal: only settings we actively choose; everything
+# else stays at aven's built-in defaults (see `aven config init` for
+# the full schema). Runtime writes (`aven config set`, TUI preference
+# changes, sync enablement) atomically REPLACE the symlink with a real
+# file — they hold until the next switch/reboot, then this file wins
+# again. Durable changes belong HERE, not in `aven config set`.
+#
+# sync.enabled: true — jehoel is paired with aven.otwell.dev;
+# background sync runs via the declarative aven-daemon unit in
+# aven.nix. Additional devices join with
+# `aven sync invite` from an already-paired host.
+sync:
+  enabled: true
+update:
+  # Upgrades come from the llm-agents flake input via nixos-rebuild —
+  # never `aven update` (it self-updates a direct install).
+  automatic_checks: false

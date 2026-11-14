@@ -1,0 +1,29 @@
+# default — show available commands
+default:
+    @just --list
+
+# Sync dependencies from pyproject.toml (first run creates .venv)
+sync:
+    uv sync
+
+# Run the test suite
+test:
+    uv run pytest
+
+# Type-check (ty — helix 25.07 default checker, from the dev shell)
+check:
+    ty check .
+
+# Lint + format check (ruff — house formatter standard)
+lint:
+    ruff check .
+    ruff format --check .
+
+# Apply fixes and formatting
+fmt:
+    ruff check --fix .
+    ruff format .
+
+# Interactive REPL (IPython from the uv dev group)
+repl:
+    uv run ipython

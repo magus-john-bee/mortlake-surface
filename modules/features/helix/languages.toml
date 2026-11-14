@@ -1,0 +1,2 @@
+[language-server.bash-language-server.config]
+globPattern = "**/*@(.sh|.inc|.bash|.command|.zsh|.zshrc|.zshenv|.zprofile|.zlogin|.zlogout)"
