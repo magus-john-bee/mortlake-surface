@@ -1,0 +1,12 @@
+<section class="resume-section" id="certificates">
+  <h2>Certificates</h2>
+  <ul class="certificate-list">
+    {{ range hugo.Data.resume.certificates }}
+    <li>
+      <strong>{{ .name }}</strong>
+      {{ if .issuer }} — {{ .issuer }}{{ end }}
+      {{ if .date }} ({{ dateFormat "2006" .date }}){{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</section>

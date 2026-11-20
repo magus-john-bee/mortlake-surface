@@ -1,0 +1,9 @@
+{
+  "rules": [
+    {
+      "path": "**/*",
+      "merge_system_rule": true,
+      "rule": "House lens (distilled from ponytail, DietrichGebert/ponytail): judge every change by necessity, not taste. On top of the system rules, report: (1) Lean - code that should not exist or should be smaller: dead code and unused options; speculative features; a helper reimplemented when the repo already has one (name the path); a new dependency doing what the stdlib or platform already does; an abstraction with one implementation; config nobody sets; near-copies that must change together; one function mixing unrelated jobs (split by job, never by line count). (2) Fixes should prefer deleting code: propose the smallest fix that works; never add a layer, framework, or configuration the problem does not need. (3) Necessity, not golf: validation, error handling, security, accessibility, and data-loss handling are never acceptable cuts. (4) Every finding needs a concrete failing case - this input or situation produces that wrong result. No style taste, no 'consider', no vague worries. A `shortcut:` comment that names its limit is a deliberate decision, not a finding."
+    }
+  ]
+}

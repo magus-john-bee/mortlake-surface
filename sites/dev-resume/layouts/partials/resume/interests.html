@@ -1,0 +1,8 @@
+<section class="resume-section" id="interests">
+  <h2>Interests</h2>
+  <ul class="interest-list">
+    {{ range hugo.Data.resume.interests }}
+    <li class="interest-tag">{{ .name }}</li>
+    {{ end }}
+  </ul>
+</section>

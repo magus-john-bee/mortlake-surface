@@ -1,0 +1,104 @@
+baseURL = "https://john.otwell.dev/"
+title = "John Otwell"
+theme = "hugo-theme-gruvbox"
+enableRobotsTXT = true
+defaultContentLanguage = "en"
+
+[languages]
+[languages.en]
+label = "English"
+weight = 1
+
+[module]
+replacements = "github.com/schnerring/hugo-mod-json-resume -> hugo-mod-json-resume"
+# Explicit mounts replace Hugo's defaults — static/ must be mounted or
+# CNAME + static/img (headshot) never reach public/.
+[[module.mounts]]
+source = "static"
+target = "static"
+[[module.mounts]]
+source = "node_modules/simple-icons/icons"
+target = "assets/simple-icons"
+[[module.mounts]]
+source = "node_modules/prismjs"
+target = "assets/prismjs"
+[[module.mounts]]
+source = "node_modules/prism-themes/themes"
+target = "assets/prism-themes"
+[[module.mounts]]
+source = "node_modules/typeface-fira-code/files"
+target = "static/fonts"
+[[module.mounts]]
+source = "node_modules/typeface-roboto-slab/files"
+target = "static/fonts"
+[[module.mounts]]
+source = "node_modules/@tabler/icons/icons"
+target = "assets/tabler-icons"
+
+[build]
+noJSConfigInAssets = true
+[build.buildStats]
+enable = true
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+[outputs]
+home = ["html", "rss", "searchIndex"]
+
+[outputFormats]
+[outputFormats.searchIndex]
+mediaType = "application/json"
+baseName = "search-index"
+isPlainText = true
+notAlternative = true
+
+[params]
+author = "John Otwell"
+subtitle = "Software Engineer"
+description = "John Otwell — Software Engineer. I'm a generalist software engineer fluent with generative AI — using it to complement my own work, and building with it to complement the work of technical teams."
+defaultTheme = "dark"
+
+[params.logo]
+text = "JO"
+url = "/"
+
+[params.prism]
+languages = [
+  "markup",
+  "css",
+  "clike",
+  "javascript",
+  "bash",
+  "toml",
+  "python",
+  "json",
+]
+plugins = [
+  "normalize-whitespace",
+  "toolbar",
+  "copy-to-clipboard",
+  "line-numbers",
+]
+
+[params.tagCloud]
+enable = false
+
+[menu]
+[[menu.main]]
+identifier = "cv"
+name = "CV"
+url = "/cv/"
+weight = 10
+[[menu.main]]
+identifier = "github"
+name = "GitHub"
+url = "https://github.com/jbotwell"
+weight = 20
+[[menu.main]]
+identifier = "linkedin"
+name = "LinkedIn"
+url = "https://www.linkedin.com/in/john-otwell-b555a6241"
+weight = 30

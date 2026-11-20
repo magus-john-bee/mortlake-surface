@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtual envs
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# DVC
+/.dvc/cache
+
+# Model outputs / checkpoints
+*.pt
+*.bin
+*.safetensors
+*.gguf
+outputs/
+checkpoints/
+
+# Data (manage via DVC)
+data/raw/
+data/processed/
+
+# Direnv
+.direnv/

@@ -1,0 +1,21 @@
+{{ if hugo.Data.content.aboutMe.enable }}
+  <div class="about-me">
+    <span class="category-header">
+      <i class="fas fa-user fa-2x"></i>
+      <h2>About Me</h2>
+      <button class="uk-icon-button" uk-icon="paint-bucket" type="button" onClick="switchTheme(this)" aria-label="Switch Theme"></button>
+    </span>
+
+    <div>
+      <p>{{ hugo.Data.content.aboutMe.text | safeHTML }}</p>
+      {{ if hugo.Data.content.aboutMe.list.enable }}
+      <ul>
+        {{ range hugo.Data.content.aboutMe.list.items }}
+          <li>{{ .text }}</li>
+        {{ end }}
+      </ul>
+      {{ end }}
+    </div>
+  </div>
+  <hr>
+{{ end }}

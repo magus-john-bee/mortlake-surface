@@ -1,0 +1,33 @@
+# default — show available commands
+default:
+    @just --list
+
+# Compile debug build
+build:
+    cargo build
+
+# Run the binary (pass args: just run -- --flag)
+run *ARGS:
+    cargo run {{ARGS}}
+
+# Run the test suite
+test:
+    cargo test
+
+# Fast type-check without codegen
+check:
+    cargo check
+
+# Format check + lints (fmt --check, clippy denies warnings)
+lint:
+    cargo fmt --check
+    cargo clippy -- -D warnings
+
+# Apply formatting and clippy fixes
+fmt:
+    cargo fmt
+    cargo clippy --fix --allow-dirty --allow-no-vcs
+
+# Watch loop: check + test on every save (bacon)
+watch:
+    bacon

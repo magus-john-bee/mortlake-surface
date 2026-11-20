@@ -1,0 +1,1554 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "noctalia-settings.schema.json",
+  "title": "Noctalia Shell Configuration",
+  "description": "Schema for noctalia.json (dump state and settings for the noctalia-shell wrapper)",
+  "type": "object",
+  "properties": {
+    "settings": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "settingsVersion": {
+          "type": "integer",
+          "description": "Settings schema version"
+        },
+        "bar": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "barType": {
+              "type": "string",
+              "enum": [
+                "simple",
+                "floating",
+                "framed"
+              ],
+              "default": "simple"
+            },
+            "position": {
+              "type": "string",
+              "enum": [
+                "top",
+                "bottom",
+                "left",
+                "right"
+              ],
+              "default": "top"
+            },
+            "monitors": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "density": {
+              "type": "string",
+              "enum": [
+                "compact",
+                "default",
+                "comfortable"
+              ],
+              "default": "default"
+            },
+            "showOutline": {
+              "type": "boolean"
+            },
+            "showCapsule": {
+              "type": "boolean"
+            },
+            "capsuleOpacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "capsuleColorKey": {
+              "type": "string"
+            },
+            "widgetSpacing": {
+              "type": "number"
+            },
+            "contentPadding": {
+              "type": "number"
+            },
+            "fontScale": {
+              "type": "number"
+            },
+            "enableExclusionZoneInset": {
+              "type": "boolean"
+            },
+            "backgroundOpacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "useSeparateOpacity": {
+              "type": "boolean"
+            },
+            "marginVertical": {
+              "type": "number"
+            },
+            "marginHorizontal": {
+              "type": "number"
+            },
+            "frameThickness": {
+              "type": "number"
+            },
+            "frameRadius": {
+              "type": "number"
+            },
+            "outerCorners": {
+              "type": "boolean"
+            },
+            "hideOnOverview": {
+              "type": "boolean"
+            },
+            "displayMode": {
+              "type": "string",
+              "enum": [
+                "always_visible",
+                "auto_hide",
+                "exclusive"
+              ],
+              "default": "always_visible"
+            },
+            "autoHideDelay": {
+              "type": "integer"
+            },
+            "autoShowDelay": {
+              "type": "integer"
+            },
+            "showOnWorkspaceSwitch": {
+              "type": "boolean"
+            },
+            "widgets": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "left": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/barWidget"
+                  }
+                },
+                "center": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/barWidget"
+                  }
+                },
+                "right": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/barWidget"
+                  }
+                }
+              }
+            },
+            "mouseWheelAction": {
+              "type": "string"
+            },
+            "reverseScroll": {
+              "type": "boolean"
+            },
+            "mouseWheelWrap": {
+              "type": "boolean"
+            },
+            "middleClickAction": {
+              "type": "string"
+            },
+            "middleClickFollowMouse": {
+              "type": "boolean"
+            },
+            "middleClickCommand": {
+              "type": "string"
+            },
+            "rightClickAction": {
+              "type": "string"
+            },
+            "rightClickFollowMouse": {
+              "type": "boolean"
+            },
+            "rightClickCommand": {
+              "type": "string"
+            },
+            "screenOverrides": {
+              "type": "array",
+              "items": {}
+            }
+          }
+        },
+        "general": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "avatarImage": {
+              "type": "string"
+            },
+            "dimmerOpacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "showScreenCorners": {
+              "type": "boolean"
+            },
+            "forceBlackScreenCorners": {
+              "type": "boolean"
+            },
+            "scaleRatio": {
+              "type": "number"
+            },
+            "radiusRatio": {
+              "type": "number"
+            },
+            "iRadiusRatio": {
+              "type": "number"
+            },
+            "boxRadiusRatio": {
+              "type": "number"
+            },
+            "screenRadiusRatio": {
+              "type": "number"
+            },
+            "animationSpeed": {
+              "type": "number"
+            },
+            "animationDisabled": {
+              "type": "boolean"
+            },
+            "compactLockScreen": {
+              "type": "boolean"
+            },
+            "lockScreenAnimations": {
+              "type": "boolean"
+            },
+            "lockOnSuspend": {
+              "type": "boolean"
+            },
+            "showSessionButtonsOnLockScreen": {
+              "type": "boolean"
+            },
+            "showHibernateOnLockScreen": {
+              "type": "boolean"
+            },
+            "enableLockScreenMediaControls": {
+              "type": "boolean"
+            },
+            "enableShadows": {
+              "type": "boolean"
+            },
+            "enableBlurBehind": {
+              "type": "boolean"
+            },
+            "shadowDirection": {
+              "type": "string"
+            },
+            "shadowOffsetX": {
+              "type": "number"
+            },
+            "shadowOffsetY": {
+              "type": "number"
+            },
+            "language": {
+              "type": "string"
+            },
+            "allowPanelsOnScreenWithoutBar": {
+              "type": "boolean"
+            },
+            "showChangelogOnStartup": {
+              "type": "boolean"
+            },
+            "telemetryEnabled": {
+              "type": "boolean"
+            },
+            "enableLockScreenCountdown": {
+              "type": "boolean"
+            },
+            "lockScreenCountdownDuration": {
+              "type": "integer"
+            },
+            "autoStartAuth": {
+              "type": "boolean"
+            },
+            "allowPasswordWithFprintd": {
+              "type": "boolean"
+            },
+            "clockStyle": {
+              "type": "string"
+            },
+            "clockFormat": {
+              "type": "string"
+            },
+            "passwordChars": {
+              "type": "boolean"
+            },
+            "lockScreenMonitors": {
+              "type": "array",
+              "items": {}
+            },
+            "lockScreenBlur": {
+              "type": "number"
+            },
+            "lockScreenTint": {
+              "type": "number"
+            },
+            "keybinds": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "keyUp": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "keyDown": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "keyLeft": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "keyRight": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "keyEnter": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "keyEscape": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "keyRemove": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "reverseScroll": {
+              "type": "boolean"
+            },
+            "smoothScrollEnabled": {
+              "type": "boolean"
+            }
+          }
+        },
+        "ui": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "fontDefault": {
+              "type": "string"
+            },
+            "fontFixed": {
+              "type": "string"
+            },
+            "fontDefaultScale": {
+              "type": "number"
+            },
+            "fontFixedScale": {
+              "type": "number"
+            },
+            "tooltipsEnabled": {
+              "type": "boolean"
+            },
+            "scrollbarAlwaysVisible": {
+              "type": "boolean"
+            },
+            "boxBorderEnabled": {
+              "type": "boolean"
+            },
+            "panelBackgroundOpacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "translucentWidgets": {
+              "type": "boolean"
+            },
+            "panelsAttachedToBar": {
+              "type": "boolean"
+            },
+            "settingsPanelMode": {
+              "type": "string",
+              "enum": [
+                "centered",
+                "attached",
+                "window"
+              ]
+            },
+            "settingsPanelSideBarCardStyle": {
+              "type": "boolean"
+            }
+          }
+        },
+        "location": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "weatherEnabled": {
+              "type": "boolean"
+            },
+            "weatherShowEffects": {
+              "type": "boolean"
+            },
+            "weatherTaliaMascotAlways": {
+              "type": "boolean"
+            },
+            "useFahrenheit": {
+              "type": "boolean"
+            },
+            "use12hourFormat": {
+              "type": "boolean"
+            },
+            "showWeekNumberInCalendar": {
+              "type": "boolean"
+            },
+            "showCalendarEvents": {
+              "type": "boolean"
+            },
+            "showCalendarWeather": {
+              "type": "boolean"
+            },
+            "analogClockInCalendar": {
+              "type": "boolean"
+            },
+            "firstDayOfWeek": {
+              "type": "integer"
+            },
+            "hideWeatherTimezone": {
+              "type": "boolean"
+            },
+            "hideWeatherCityName": {
+              "type": "boolean"
+            },
+            "autoLocate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "calendar": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "cards": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "id": {
+                    "type": "string",
+                    "enum": [
+                      "calendar-header-card",
+                      "calendar-month-card",
+                      "weather-card"
+                    ]
+                  }
+                },
+                "required": [
+                  "id"
+                ]
+              }
+            }
+          }
+        },
+        "wallpaper": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "overviewEnabled": {
+              "type": "boolean"
+            },
+            "directory": {
+              "type": "string"
+            },
+            "monitorDirectories": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "enableMultiMonitorDirectories": {
+              "type": "boolean"
+            },
+            "showHiddenFiles": {
+              "type": "boolean"
+            },
+            "viewMode": {
+              "type": "string",
+              "enum": [
+                "single",
+                "recursive",
+                "browse"
+              ],
+              "default": "single"
+            },
+            "setWallpaperOnAllMonitors": {
+              "type": "boolean"
+            },
+            "linkLightAndDarkWallpapers": {
+              "type": "boolean"
+            },
+            "fillMode": {
+              "type": "string",
+              "default": "crop"
+            },
+            "fillColor": {
+              "type": "string"
+            },
+            "useSolidColor": {
+              "type": "boolean"
+            },
+            "solidColor": {
+              "type": "string"
+            },
+            "automationEnabled": {
+              "type": "boolean"
+            },
+            "wallpaperChangeMode": {
+              "type": "string",
+              "enum": [
+                "random",
+                "alphabetical"
+              ],
+              "default": "random"
+            },
+            "randomIntervalSec": {
+              "type": "integer"
+            },
+            "transitionDuration": {
+              "type": "integer"
+            },
+            "transitionType": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "fade",
+                  "disc",
+                  "stripes",
+                  "wipe",
+                  "pixelate",
+                  "honeycomb"
+                ]
+              }
+            },
+            "skipStartupTransition": {
+              "type": "boolean"
+            },
+            "transitionEdgeSmoothness": {
+              "type": "number"
+            },
+            "panelPosition": {
+              "type": "string"
+            },
+            "hideWallpaperFilenames": {
+              "type": "boolean"
+            },
+            "useOriginalImages": {
+              "type": "boolean"
+            },
+            "overviewBlur": {
+              "type": "number"
+            },
+            "overviewTint": {
+              "type": "number"
+            },
+            "useWallhaven": {
+              "type": "boolean"
+            },
+            "wallhavenQuery": {
+              "type": "string"
+            },
+            "wallhavenSorting": {
+              "type": "string"
+            },
+            "wallhavenOrder": {
+              "type": "string"
+            },
+            "wallhavenCategories": {
+              "type": "string"
+            },
+            "wallhavenPurity": {
+              "type": "string"
+            },
+            "wallhavenRatios": {
+              "type": "string"
+            },
+            "wallhavenApiKey": {
+              "type": "string"
+            },
+            "wallhavenResolutionMode": {
+              "type": "string",
+              "enum": [
+                "atleast",
+                "exact"
+              ]
+            },
+            "wallhavenResolutionWidth": {
+              "type": "string"
+            },
+            "wallhavenResolutionHeight": {
+              "type": "string"
+            },
+            "sortOrder": {
+              "type": "string",
+              "enum": [
+                "name",
+                "name_desc",
+                "date",
+                "date_desc",
+                "random"
+              ],
+              "default": "name"
+            },
+            "favorites": {
+              "type": "array",
+              "items": {}
+            }
+          }
+        },
+        "appLauncher": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enableClipboardHistory": {
+              "type": "boolean"
+            },
+            "autoPasteClipboard": {
+              "type": "boolean"
+            },
+            "enableClipPreview": {
+              "type": "boolean"
+            },
+            "clipboardWrapText": {
+              "type": "boolean"
+            },
+            "enableClipboardSmartIcons": {
+              "type": "boolean"
+            },
+            "enableClipboardChips": {
+              "type": "boolean"
+            },
+            "clipboardWatchTextCommand": {
+              "type": "string"
+            },
+            "clipboardWatchImageCommand": {
+              "type": "string"
+            },
+            "position": {
+              "type": "string",
+              "enum": [
+                "center",
+                "top_left",
+                "top_right",
+                "bottom_left",
+                "bottom_right",
+                "bottom_center",
+                "top_center"
+              ],
+              "default": "center"
+            },
+            "pinnedApps": {
+              "type": "array",
+              "items": {}
+            },
+            "sortByMostUsed": {
+              "type": "boolean"
+            },
+            "terminalCommand": {
+              "type": "string"
+            },
+            "customLaunchPrefixEnabled": {
+              "type": "boolean"
+            },
+            "customLaunchPrefix": {
+              "type": "string"
+            },
+            "viewMode": {
+              "type": "string",
+              "enum": [
+                "list",
+                "grid"
+              ],
+              "default": "list"
+            },
+            "showCategories": {
+              "type": "boolean"
+            },
+            "iconMode": {
+              "type": "string",
+              "enum": [
+                "tabler",
+                "native"
+              ],
+              "default": "tabler"
+            },
+            "showIconBackground": {
+              "type": "boolean"
+            },
+            "enableSettingsSearch": {
+              "type": "boolean"
+            },
+            "enableWindowsSearch": {
+              "type": "boolean"
+            },
+            "enableSessionSearch": {
+              "type": "boolean"
+            },
+            "ignoreMouseInput": {
+              "type": "boolean"
+            },
+            "screenshotAnnotationTool": {
+              "type": "string"
+            },
+            "overviewLayer": {
+              "type": "boolean"
+            },
+            "density": {
+              "type": "string",
+              "enum": [
+                "compact",
+                "default",
+                "comfortable"
+              ],
+              "default": "default"
+            }
+          }
+        },
+        "controlCenter": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "position": {
+              "type": "string",
+              "enum": [
+                "close_to_bar_button",
+                "center",
+                "top_left",
+                "top_right",
+                "bottom_left",
+                "bottom_right",
+                "bottom_center",
+                "top_center"
+              ],
+              "default": "close_to_bar_button"
+            },
+            "diskPath": {
+              "type": "string"
+            },
+            "shortcuts": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "left": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/shortcutId"
+                  }
+                },
+                "right": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/shortcutId"
+                  }
+                }
+              }
+            },
+            "cards": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "id": {
+                    "type": "string",
+                    "enum": [
+                      "profile-card",
+                      "shortcuts-card",
+                      "audio-card",
+                      "brightness-card",
+                      "weather-card",
+                      "media-sysmon-card"
+                    ]
+                  }
+                },
+                "required": [
+                  "id"
+                ]
+              }
+            }
+          }
+        },
+        "systemMonitor": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "cpuWarningThreshold": {
+              "type": "integer"
+            },
+            "cpuCriticalThreshold": {
+              "type": "integer"
+            },
+            "tempWarningThreshold": {
+              "type": "integer"
+            },
+            "tempCriticalThreshold": {
+              "type": "integer"
+            },
+            "gpuWarningThreshold": {
+              "type": "integer"
+            },
+            "gpuCriticalThreshold": {
+              "type": "integer"
+            },
+            "memWarningThreshold": {
+              "type": "integer"
+            },
+            "memCriticalThreshold": {
+              "type": "integer"
+            },
+            "swapWarningThreshold": {
+              "type": "integer"
+            },
+            "swapCriticalThreshold": {
+              "type": "integer"
+            },
+            "diskWarningThreshold": {
+              "type": "integer"
+            },
+            "diskCriticalThreshold": {
+              "type": "integer"
+            },
+            "diskAvailWarningThreshold": {
+              "type": "integer"
+            },
+            "diskAvailCriticalThreshold": {
+              "type": "integer"
+            },
+            "batteryWarningThreshold": {
+              "type": "integer"
+            },
+            "batteryCriticalThreshold": {
+              "type": "integer"
+            },
+            "enableDgpuMonitoring": {
+              "type": "boolean"
+            },
+            "useCustomColors": {
+              "type": "boolean"
+            },
+            "warningColor": {
+              "type": "string"
+            },
+            "criticalColor": {
+              "type": "string"
+            },
+            "externalMonitor": {
+              "type": "string"
+            }
+          }
+        },
+        "noctaliaPerformance": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "disableWallpaper": {
+              "type": "boolean"
+            },
+            "disableDesktopWidgets": {
+              "type": "boolean"
+            }
+          }
+        },
+        "dock": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "position": {
+              "type": "string",
+              "enum": [
+                "top",
+                "bottom",
+                "left",
+                "right"
+              ],
+              "default": "bottom"
+            },
+            "displayMode": {
+              "type": "string",
+              "enum": [
+                "always_visible",
+                "auto_hide",
+                "exclusive"
+              ],
+              "default": "auto_hide"
+            },
+            "dockType": {
+              "type": "string",
+              "enum": [
+                "floating",
+                "attached"
+              ],
+              "default": "floating"
+            },
+            "backgroundOpacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "floatingRatio": {
+              "type": "number"
+            },
+            "size": {
+              "type": "number"
+            },
+            "onlySameOutput": {
+              "type": "boolean"
+            },
+            "monitors": {
+              "type": "array",
+              "items": {}
+            },
+            "pinnedApps": {
+              "type": "array",
+              "items": {}
+            },
+            "colorizeIcons": {
+              "type": "boolean"
+            },
+            "showLauncherIcon": {
+              "type": "boolean"
+            },
+            "launcherPosition": {
+              "type": "string",
+              "enum": [
+                "start",
+                "end"
+              ],
+              "default": "end"
+            },
+            "launcherUseDistroLogo": {
+              "type": "boolean"
+            },
+            "launcherIcon": {
+              "type": "string"
+            },
+            "launcherIconColor": {
+              "type": "string"
+            },
+            "pinnedStatic": {
+              "type": "boolean"
+            },
+            "inactiveIndicators": {
+              "type": "boolean"
+            },
+            "groupApps": {
+              "type": "boolean"
+            },
+            "groupContextMenuMode": {
+              "type": "string",
+              "enum": [
+                "list",
+                "extended"
+              ],
+              "default": "extended"
+            },
+            "groupClickAction": {
+              "type": "string",
+              "enum": [
+                "cycle",
+                "list"
+              ],
+              "default": "cycle"
+            },
+            "groupIndicatorStyle": {
+              "type": "string",
+              "enum": [
+                "number",
+                "dots"
+              ],
+              "default": "dots"
+            },
+            "deadOpacity": {
+              "type": "number"
+            },
+            "animationSpeed": {
+              "type": "number"
+            },
+            "sitOnFrame": {
+              "type": "boolean"
+            },
+            "showDockIndicator": {
+              "type": "boolean"
+            },
+            "indicatorThickness": {
+              "type": "number"
+            },
+            "indicatorColor": {
+              "type": "string"
+            },
+            "indicatorOpacity": {
+              "type": "number"
+            }
+          }
+        },
+        "network": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "bluetoothRssiPollingEnabled": {
+              "type": "boolean"
+            },
+            "bluetoothRssiPollIntervalMs": {
+              "type": "integer"
+            },
+            "networkPanelView": {
+              "type": "string"
+            },
+            "wifiDetailsViewMode": {
+              "type": "string",
+              "enum": [
+                "grid",
+                "list"
+              ],
+              "default": "grid"
+            },
+            "bluetoothDetailsViewMode": {
+              "type": "string",
+              "enum": [
+                "grid",
+                "list"
+              ],
+              "default": "grid"
+            },
+            "bluetoothHideUnnamedDevices": {
+              "type": "boolean"
+            },
+            "disableDiscoverability": {
+              "type": "boolean"
+            },
+            "bluetoothAutoConnect": {
+              "type": "boolean"
+            }
+          }
+        },
+        "sessionMenu": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enableCountdown": {
+              "type": "boolean"
+            },
+            "countdownDuration": {
+              "type": "integer"
+            },
+            "position": {
+              "type": "string"
+            },
+            "showHeader": {
+              "type": "boolean"
+            },
+            "showKeybinds": {
+              "type": "boolean"
+            },
+            "largeButtonsStyle": {
+              "type": "boolean"
+            },
+            "largeButtonsLayout": {
+              "type": "string"
+            },
+            "powerOptions": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "lock",
+                      "suspend",
+                      "hibernate",
+                      "reboot",
+                      "logout",
+                      "shutdown",
+                      "rebootToUefi"
+                    ]
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  },
+                  "keybind": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "action"
+                ]
+              }
+            }
+          }
+        },
+        "notifications": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "enableMarkdown": {
+              "type": "boolean"
+            },
+            "density": {
+              "type": "string",
+              "enum": [
+                "default",
+                "compact"
+              ],
+              "default": "default"
+            },
+            "monitors": {
+              "type": "array",
+              "items": {}
+            },
+            "location": {
+              "type": "string"
+            },
+            "overlayLayer": {
+              "type": "boolean"
+            },
+            "backgroundOpacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "respectExpireTimeout": {
+              "type": "boolean"
+            },
+            "lowUrgencyDuration": {
+              "type": "integer"
+            },
+            "normalUrgencyDuration": {
+              "type": "integer"
+            },
+            "criticalUrgencyDuration": {
+              "type": "integer"
+            },
+            "clearDismissed": {
+              "type": "boolean"
+            },
+            "saveToHistory": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "low": {
+                  "type": "boolean"
+                },
+                "normal": {
+                  "type": "boolean"
+                },
+                "critical": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "sounds": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "enabled": {
+                  "type": "boolean"
+                },
+                "volume": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "separateSounds": {
+                  "type": "boolean"
+                },
+                "criticalSoundFile": {
+                  "type": "string"
+                },
+                "normalSoundFile": {
+                  "type": "string"
+                },
+                "lowSoundFile": {
+                  "type": "string"
+                },
+                "excludedApps": {
+                  "type": "string"
+                }
+              }
+            },
+            "enableMediaToast": {
+              "type": "boolean"
+            },
+            "enableKeyboardLayoutToast": {
+              "type": "boolean"
+            },
+            "enableBatteryToast": {
+              "type": "boolean"
+            }
+          }
+        },
+        "osd": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "location": {
+              "type": "string"
+            },
+            "autoHideMs": {
+              "type": "integer"
+            },
+            "overlayLayer": {
+              "type": "boolean"
+            },
+            "backgroundOpacity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "enabledTypes": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            },
+            "monitors": {
+              "type": "array",
+              "items": {}
+            }
+          }
+        },
+        "audio": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "volumeStep": {
+              "type": "integer"
+            },
+            "volumeOverdrive": {
+              "type": "boolean"
+            },
+            "spectrumFrameRate": {
+              "type": "integer"
+            },
+            "visualizerType": {
+              "type": "string"
+            },
+            "spectrumMirrored": {
+              "type": "boolean"
+            },
+            "mprisBlacklist": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "preferredPlayer": {
+              "type": "string"
+            },
+            "volumeFeedback": {
+              "type": "boolean"
+            },
+            "volumeFeedbackSoundFile": {
+              "type": "string"
+            }
+          }
+        },
+        "brightness": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "brightnessStep": {
+              "type": "integer"
+            },
+            "enforceMinimum": {
+              "type": "boolean"
+            },
+            "enableDdcSupport": {
+              "type": "boolean"
+            },
+            "backlightDeviceMappings": {
+              "type": "array",
+              "items": {}
+            }
+          }
+        },
+        "colorSchemes": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "useWallpaperColors": {
+              "type": "boolean"
+            },
+            "predefinedScheme": {
+              "type": "string"
+            },
+            "darkMode": {
+              "type": "boolean"
+            },
+            "schedulingMode": {
+              "type": "string"
+            },
+            "manualSunrise": {
+              "type": "string"
+            },
+            "manualSunset": {
+              "type": "string"
+            },
+            "generationMethod": {
+              "type": "string"
+            },
+            "monitorForColors": {
+              "type": "string"
+            },
+            "syncGsettings": {
+              "type": "boolean"
+            }
+          }
+        },
+        "templates": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "activeTemplates": {
+              "type": "array",
+              "items": {}
+            },
+            "enableUserTheming": {
+              "type": "boolean"
+            }
+          }
+        },
+        "nightLight": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "forced": {
+              "type": "boolean"
+            },
+            "autoSchedule": {
+              "type": "boolean"
+            },
+            "nightTemp": {
+              "type": "string"
+            },
+            "dayTemp": {
+              "type": "string"
+            },
+            "manualSunrise": {
+              "type": "string"
+            },
+            "manualSunset": {
+              "type": "string"
+            }
+          }
+        },
+        "hooks": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "wallpaperChange": {
+              "type": "string"
+            },
+            "darkModeChange": {
+              "type": "string"
+            },
+            "screenLock": {
+              "type": "string"
+            },
+            "screenUnlock": {
+              "type": "string"
+            },
+            "performanceModeEnabled": {
+              "type": "string"
+            },
+            "performanceModeDisabled": {
+              "type": "string"
+            },
+            "startup": {
+              "type": "string"
+            },
+            "session": {
+              "type": "string"
+            },
+            "colorGeneration": {
+              "type": "string"
+            }
+          }
+        },
+        "plugins": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "autoUpdate": {
+              "type": "boolean"
+            },
+            "notifyUpdates": {
+              "type": "boolean"
+            }
+          }
+        },
+        "idle": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "screenOffTimeout": {
+              "type": "integer"
+            },
+            "lockTimeout": {
+              "type": "integer"
+            },
+            "suspendTimeout": {
+              "type": "integer"
+            },
+            "fadeDuration": {
+              "type": "integer"
+            },
+            "screenOffCommand": {
+              "type": "string"
+            },
+            "lockCommand": {
+              "type": "string"
+            },
+            "suspendCommand": {
+              "type": "string"
+            },
+            "resumeScreenOffCommand": {
+              "type": "string"
+            },
+            "resumeLockCommand": {
+              "type": "string"
+            },
+            "resumeSuspendCommand": {
+              "type": "string"
+            },
+            "customCommands": {
+              "type": "string"
+            }
+          }
+        },
+        "desktopWidgets": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "overviewEnabled": {
+              "type": "boolean"
+            },
+            "gridSnap": {
+              "type": "boolean"
+            },
+            "gridSnapScale": {
+              "type": "boolean"
+            },
+            "monitorWidgets": {
+              "type": "array",
+              "items": {}
+            }
+          }
+        }
+      }
+    },
+    "state": {
+      "type": "object",
+      "description": "Runtime state (not consumed by the wrapper, preserved from dumps)"
+    }
+  },
+  "$defs": {
+    "barWidget": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "Launcher",
+            "Clock",
+            "SystemMonitor",
+            "ActiveWindow",
+            "MediaMini",
+            "Workspace",
+            "Tray",
+            "NotificationHistory",
+            "Battery",
+            "Volume",
+            "Brightness",
+            "ControlCenter"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "shortcutId": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": [
+            "Network",
+            "Bluetooth",
+            "WallpaperSelector",
+            "NoctaliaPerformance",
+            "Notifications",
+            "PowerProfile",
+            "KeepAwake",
+            "NightLight"
+          ]
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  }
+}

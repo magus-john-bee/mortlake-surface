@@ -1,0 +1,16 @@
+<section class="resume-section" id="education">
+  <h2>Education</h2>
+  {{ range hugo.Data.resume.education }}
+  <div class="resume-item">
+    <div class="resume-item-header">
+      <h3>
+        {{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .institution }}</a>{{ else }}{{ .institution }}{{ end }}
+      </h3>
+      <span class="resume-degree">{{ .studyType }}{{ if .area }}, {{ .area }}{{ end }}</span>
+      <span class="resume-dates">
+        {{ dateFormat "2006" .startDate }} — {{ if .endDate }}{{ dateFormat "2006" .endDate }}{{ else }}Present{{ end }}
+      </span>
+    </div>
+  </div>
+  {{ end }}
+</section>

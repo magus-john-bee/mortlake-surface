@@ -1,0 +1,24 @@
+{
+  "provider": "qwencloud",
+  "model": "deepseek-v4.1-flash-1017",
+  "llm": {
+    "timeout_sec": 600
+  },
+  "tasks": {
+    "MAIN_TASK": {
+      "timeout": 600
+    }
+  },
+  "custom_providers": {
+    "qwencloud": {
+      "url": "https://token-plan.maas.qwencloudapi.com/compatible-mode/v1",
+      "protocol": "openai",
+      "api_key_cmd": "cat /run/secrets/qwencloud-api-key"
+    }
+  },
+  "providers": {
+    "openrouter": {
+      "api_key_cmd": "cat /run/secrets/openrouter-api-key"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+# Himalaya v2 config — read-only account over Proton Bridge.
+#
+# THE BOUNDARY: there is NO smtp block in this file, by design. Every
+# himalaya send path fails without one; no SMTP credential exists to
+# exfiltrate or repoint. Drafts still work — they APPEND into the
+# Drafts folder over IMAP and sync to all Proton apps; the user hits
+# send. draft-yes, send-no.
+#
+# Delete is NOT blocked (accepted risk 2026-10-02): a delete from any
+# mailbox is a move to Trash (recoverable; labels stripped by Proton,
+# not restored on recover). Permadelete = deleting from Trash itself,
+# a deliberate two-step.
+[accounts.proton]
+default = true
+email = "john.otwell@proton.me"
+# Attachments land here. Deliberately under ~/data (NOT /tmp): /tmp's
+# preservation slot is the performance-oriented on-disk one that
+# systemd-tmpfiles still ages out, and nothing under it is restic-backed.
+# ~/data is both preserved and in restic's jehoel paths — downloads get
+# persistence + offsite backup with no extra declarations.
+downloads-dir = "/home/john/data/himalaya"
+
+# Bridge IMAP: loopback, STARTTLS (Bridge's default mode on 1143 —
+# imap:// scheme so himalaya upgrades rather than expecting implicit
+# TLS, which Bridge does not speak on this port by default).
+imap.server = "imap://127.0.0.1:1143"
+
+# Bridge's self-signed TLS cert — PINNED IN-REPO, not read from
+# Bridge's state dir (Bridge doesn't reliably export cert.pem to disk
+# before first account login). This is a public loopback cert (nothing
+# secret); pinning the file makes the trust explicit and deterministic.
+# Rotated only if Bridge regenerates its cert (reinstall) — then
+# re-export: STARTTLS handshake → save PEM → replace this file.
+imap.tls.cert = "/etc/himalaya/bridge-cert.pem"
+
+imap.sasl.plain.username = "john.otwell@proton.me"
+imap.sasl.plain.password.command = "cat /run/secrets/proton-bridge-password"
+
+# v2 requires an explicit inbox alias for `envelope list`. NOTE: Bridge
+# presents mailboxes in Proper Case ("Inbox", not RFC "INBOX") — the
+# alias must match what `himalaya mailbox list` shows, or the lookup
+# falls through and v2 hard-errors with "Mailbox is required".
+[accounts.proton.mailbox.alias]
+inbox = "Inbox"
+drafts = "Drafts"
+sent = "Sent"
+trash = "Trash"

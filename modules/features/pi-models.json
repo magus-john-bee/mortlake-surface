@@ -1,0 +1,67 @@
+{
+  "$schema": "https://pi.dev/schemas/models.schema.json",
+  "providers": {
+    "qwencloud": {
+      "name": "QwenCloud Token Plan",
+      "baseUrl": "https://token-plan.maas.qwencloudapi.com/compatible-mode/v1",
+      "api": "openai-completions",
+      "apiKey": "$QWENCLOUD_API_KEY",
+      "compat": {
+        "supportsDeveloperRole": false
+      },
+      "models": [
+        {
+          "id": "qwen4-max-preview",
+          "name": "Qwen4 Max (Preview)",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 262144,
+          "maxTokens": 16384
+        },
+        {
+          "id": "qwen4-max",
+          "name": "Qwen4 Max",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 262144,
+          "maxTokens": 16384
+        },
+        {
+          "id": "qwen3.8-flash",
+          "name": "Qwen3.8 Flash",
+          "reasoning": true,
+          "input": [
+            "text",
+            "image"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 983040,
+          "maxTokens": 131072
+        }
+      ]
+    }
+  }
+}
